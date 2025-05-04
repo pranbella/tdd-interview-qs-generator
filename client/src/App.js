@@ -1,22 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import './App.css';
 import IntakeForm from './components/IntakeForm';
 import InterviewQuestions from './components/InterviewQuestions';
 
 function App() {
-  const [showQuestions, setShowQuestions] = useState(false);
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+function AppContent() {
   const [formData, setFormData] = useState(null);
   const [generatedQuestions, setGeneratedQuestions] = useState(null);
+  const navigate = useNavigate();
 
   // Scroll to top when switching between components
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [showQuestions]);
+  }, [window.location.pathname]);
 
   const handleFormSubmit = (data) => {
     setFormData(data);
     setGeneratedQuestions(null); // Clear existing questions
-    setShowQuestions(true);
+    navigate('/questions');
   };
 
   const handleQuestionsGenerated = (questions) => {
@@ -24,30 +33,39 @@ function App() {
   };
 
   const handleBackToForm = () => {
-    setShowQuestions(false);
+    navigate('/');
   };
 
   const handleViewQuestions = () => {
-    setShowQuestions(true);
+    navigate('/questions');
   };
 
   return (
     <div className="App">
-      {!showQuestions ? (
-        <IntakeForm 
-          onSubmit={handleFormSubmit}
-          onViewQuestions={handleViewQuestions}
-          hasGeneratedQuestions={!!generatedQuestions}
-          initialFormData={formData}
+      <Routes>
+        <Route 
+          path="/" 
+          element={
+            <IntakeForm 
+              onSubmit={handleFormSubmit}
+              onViewQuestions={handleViewQuestions}
+              hasGeneratedQuestions={!!generatedQuestions}
+              initialFormData={formData}
+            />
+          } 
         />
-      ) : (
-        <InterviewQuestions 
-          formData={formData} 
-          onBack={handleBackToForm}
-          onQuestionsGenerated={handleQuestionsGenerated}
-          existingQuestions={generatedQuestions}
+        <Route 
+          path="/questions" 
+          element={
+            <InterviewQuestions 
+              formData={formData} 
+              onBack={handleBackToForm}
+              onQuestionsGenerated={handleQuestionsGenerated}
+              existingQuestions={generatedQuestions}
+            />
+          } 
         />
-      )}
+      </Routes>
     </div>
   );
 }
