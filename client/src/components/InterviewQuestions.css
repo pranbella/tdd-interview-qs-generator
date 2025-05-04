@@ -1,0 +1,237 @@
+/* Main container */
+.questions-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--background-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main title */
+.questions-container h2 {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* Each question section */
+.question-category {
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--primary-color);
+  background-color: var(--background-white);
+  border-radius: 6px;
+}
+
+/* Section titles like "Behavioral Questions" */
+.question-category h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  text-transform: none;
+}
+
+/* Optional subheading inside category (e.g., Python) */
+.question-subheading {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0.5rem 0 0.75rem;
+}
+
+/* The list of questions under each section */
+.question-category ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.question-category li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Optional tweak for blockquotes/intros */
+.questions-intro {
+  font-size: 1rem;
+  color: #666;
+  background-color: #f6f6f6;
+  border-left: 4px solid #ccc;
+  padding: 1rem 1.25rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+.interview-questions {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.interview-questions h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.question-item {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--primary-light);
+  border-radius: 6px;
+  border: 1px solid var(--primary-border);
+}
+
+.question-text {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.question-edit-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--primary-border);
+  border-radius: 4px;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  background-color: var(--background-white);
+}
+
+.question-edit-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.evaluation-toggle {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+.evaluation-toggle:hover {
+  background-color: var(--primary-hover);
+}
+
+.evaluation-points {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--background-white);
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.evaluation-points h4 {
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.evaluation-points ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.evaluation-points li {
+  padding: 0.5rem 0;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--primary-border);
+}
+
+.evaluation-points li:last-child {
+  border-bottom: none;
+}
+
+.questions-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.edit-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.back-button {
+  background-color: var(--text-light);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: var(--text-dark);
+}
+
+.loading-spinner {
+  text-align: center;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.error-message {
+  color: var(--error-color);
+  background-color: var(--error-bg);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.error-help {
+  background-color: var(--primary-light);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .questions-container {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .questions-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .question-text, .question-edit-input {
+    font-size: 1.1rem;
+  }
+
+  .questions-actions {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .edit-button, .back-button {
+    width: 100%;
+  }
+}
